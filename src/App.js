@@ -1,8 +1,9 @@
+import NowPlaying from "./components/home/NowPlaying";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello, World</h1>
+      <NowPlaying />
     </div>
   );
 }

@@ -17,7 +17,6 @@ const NowPlaying = () => {
     useEffect(() => {
         getNowPlaying()
           .then((data) => {
-            console.log(data)
              setNowPlaying(data.results)
           })
     }, [nowPlaying]);
@@ -65,15 +64,17 @@ const NowPlaying = () => {
     </Typography>
     <br />
     {nowPlaying.map((movie, {id} ) => (
-      <Card key={id} sx={{ maxWidth: 345, display: "inline-flex", minHeight:650, margin:'.25em', }}>
-      <CardActionArea>
+      <Card key={id} raised={"true"} sx={{ maxWidth: 345, display: "inline-flex", minHeight:650, margin:'.25em', alignContent:'center' }}>
+      <CardActionArea LinkComponent={'a'} href='/'>
         <CardMedia
           component={'img'}
-          alt={`${movie.original_title}`}
+          alt={`${movie.title}`}
           image={`${imageUrl}${movie.poster_path}`}
          />
-         <Typography>Rating: {movie.vote_average} / 10</Typography>
-         <Rating name='read-only' value={movie.vote_average} max={10} precision={0.1} readOnly/>
+         <CardContent sx={{padding: '1em'}}>
+         <Typography> Rating: {movie.vote_average} / 10 </Typography>
+         <Rating name='read-only' value={movie.vote_average} max={10} precision={0.1} readOnly />
+         </CardContent>
          </CardActionArea>
       </Card>
     ))}

@@ -66,8 +66,8 @@ const Nav = () => {
                         <MenuItem href='/' onClick={handleCloseNavMenu}>
                                 <Typography textAlign='center'>Now Playing</Typography>
                         </MenuItem>
-                        <MenuItem component='a' href='/' onClick={handleCloseNavMenu}>
-                                <Typography textAlign='center'>Comming Soon</Typography>
+                        <MenuItem component='a' href='/comingSoon' onClick={handleCloseNavMenu}>
+                                <Typography textAlign='center'>Coming Soon</Typography>
                         </MenuItem>
                     </Menu>
                 </Box>

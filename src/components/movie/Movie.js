@@ -1,4 +1,5 @@
-import { Box, Card, Container, CssBaseline, Typography, useTheme } from '@mui/material'
+import { ContactsOutlined } from '@mui/icons-material'
+import { Box, Card, Chip, Container, CssBaseline, Typography, useTheme } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getMovieDetailById } from '../../api'
@@ -10,16 +11,19 @@ const Movie = () => {
 
     const {movieId} = useParams()
     
-    const [movieDetail, setMovieDetail] = useState([])
+    const [movieDetail, setMovieDetail] = useState([]);
+    const [genres, setGenres] = useState([]);
 
     useEffect(() => {
       getMovieDetailById(movieId)
         .then((data) => {
             setMovieDetail(data)
+            setGenres(data.genres)
         })
     
      
     }, [movieId])
+    console.log(movieDetail)
     
   return (
     <>
@@ -30,14 +34,15 @@ const Movie = () => {
       backgroundSize: 'cover',
       backgroundPosition: 'center center',
       backgroundImage: `url(${imageUrl}${movieDetail.backdrop_path})`,
-      minHeight: '100vh'
+      minHeight: '100vh',
+      marginTop: '4em'
     }}
   >
     <Container 
     >
         <Card
           sx={{
-            width: 1,
+            width: '25em',
             maxWidth: {xs: 1, sm: '50%'},
             p: {xs:2, sm: 4},
             opacity: "75%",
@@ -46,9 +51,15 @@ const Movie = () => {
             <Typography align={'center'} color={'text.secondary'} fontWeight={700} variant={'h4'}>
              {movieDetail.title}
             </Typography>
-            <Typography align={'center'} variant={'h6'}>
+            <Typography variant={'h6'}>
               {movieDetail.tagline}
             </Typography>
+            <Typography variant='p'>
+              {movieDetail.overview}
+            </Typography>
+            {genres.map((genre) => (
+              <Chip key={genre.id} label={genre.name} color='success' variant='outlined' />
+            ))}
           </Card>
       </Container>
   </Box>

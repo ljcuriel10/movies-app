@@ -1,4 +1,4 @@
-import { Card, Typography, CardMedia, CardContent, CardActionArea, Rating } from '@mui/material';
+import { Card, Typography, CardMedia, CardContent, CardActionArea, Rating, Box, CssBaseline, Chip } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { getNowPlaying } from '../../api';
 import Header from './Header';
@@ -18,12 +18,14 @@ const NowPlaying = () => {
           })
     }, [nowPlaying]);
     
-    
+    console.log(nowPlaying)
   
   return (
     <>
+    <CssBaseline />
+    <Box sx={{backgroundColor: 'black'}}>
     <Header />
-    <Typography sx={{mt: "1em"}} variant={'h2'}>
+    <Typography sx={{mt: "1em", color: 'white',}} fontWeight='bold' variant={'h2'}>
       Now Playing
     </Typography>
     <br />
@@ -36,12 +38,15 @@ const NowPlaying = () => {
           image={`${imageUrl}${movie.poster_path}`}
          />
          <CardContent sx={{padding: '1em'}}>
+         <Typography variant={'h6'}>{movie.title}</Typography>
          <Typography> Rating: {movie.vote_average} / 10 </Typography>
          <Rating name='read-only' value={movie.vote_average} max={10} precision={0.1} readOnly />
+        
          </CardContent>
          </CardActionArea>
       </Card>
     ))}
+    </Box>
     </>
   )
 }

@@ -27,6 +27,7 @@ const Nav = () => {
                     noWrap
                     component={'div'}
                     sx={{ mr:2, display: { xs: 'none', md: 'flex' } }}
+                    fontWeight='bold'
                 >
                     WeLoveMovies
                 </Typography>
@@ -60,10 +61,10 @@ const Nav = () => {
                             display: { xs: 'block', md: 'none' },
                         }}
                     >
-                         <MenuItem href='/' onClick={handleCloseNavMenu}>
+                         <MenuItem component='a' href='/' onClick={handleCloseNavMenu}>
                                 <Typography textAlign='center'>Home</Typography>
                         </MenuItem>
-                        <MenuItem href='/' onClick={handleCloseNavMenu}>
+                        <MenuItem component='a' href='/' onClick={handleCloseNavMenu}>
                                 <Typography textAlign='center'>Now Playing</Typography>
                         </MenuItem>
                         <MenuItem component='a' href='/comingSoon' onClick={handleCloseNavMenu}>
@@ -86,7 +87,7 @@ const Nav = () => {
                     <Button href='/nowPlaying' sx={{ my: 2, color: 'white', display: 'block' }}>
                         Now Playing
                     </Button>
-                    <Button href='/commingSoon' sx={{ my: 2, color: 'white', display: 'block' }}>
+                    <Button href='/comingSoon' sx={{ my: 2, color: 'white', display: 'block' }}>
                         Coming Soon
                     </Button>
                 </Box>

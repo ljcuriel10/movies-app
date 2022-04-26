@@ -19,7 +19,7 @@ const Nav = () => {
     
 
   return (
-    <AppBar position='fixed' sx={{opacity: '80%', backgroundColor: 'black'}}>
+    <AppBar position='static' sx={{opacity: '80%', backgroundColor: 'black'}}>
         <Container maxWidth='xl'>
             <Toolbar disableGutters>
                 <Typography
@@ -87,6 +87,9 @@ const Nav = () => {
                     </Button>
                     <Button href='/popular' sx={{paddingRight:'5em', my: 2, color: 'white', display: 'block', fontWeight:'bold' }}>
                         Popular
+                    </Button>
+                    <Button href='/topRated' sx={{paddingRight:'5em', my: 2, color: 'white', display: 'block', fontWeight:'bold' }}>
+                        Top Rated
                     </Button>
                     <Button href='/comingSoon' sx={{ my: 2, color: 'white', display: 'block', fontWeight:'bold' }}>
                         Coming Soon

@@ -5,6 +5,7 @@ import Movie from "./components/movie/Movie";
 import Nav from "./components/navigation/Nav";
 import Popular from "./components/movie/Popular";
 import { CssBaseline } from "@mui/material";
+import TopRated from "./components/movie/TopRated";
 require('./App.css')
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/movie/:movieId' element={<Movie />} />
         <Route path='/comingSoon' element={<ComingSoon /> } />
         <Route path='/popular' element={<Popular />} />
+        <Route path='/topRated' element={<TopRated />} />
       </Routes>
     </div>
   );

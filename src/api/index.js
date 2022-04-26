@@ -75,3 +75,14 @@ export const getPopular = async () => {
         console.log(error)
     };
 };
+
+export const getTopRated = async () => {
+    const URL = `${BASE_URL}top_rated`
+
+    try {
+        const { data: {results} } = await axios.get(URL, options);
+        return results;
+    } catch (error) {
+        console.log(error);
+    };
+};

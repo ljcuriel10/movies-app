@@ -1,4 +1,4 @@
-import { Card, CardActionArea, CardMedia, CardContent, Rating, CssBaseline, Typography } from '@mui/material'
+import { Card, CardActionArea, CardMedia, CardContent, Rating, CssBaseline, Typography, Container } from '@mui/material'
 import { Box } from '@mui/system'
 import React, { useEffect, useState } from 'react'
 import { getUpcoming } from '../../api'
@@ -19,6 +19,7 @@ const ComingSoon = () => {
   return (
     <>
     <CssBaseline />
+    <Container>
     <Box sx={{backgroundColor: 'black'}}>
         <Typography variant='h2' fontWeight="bold" color="white" sx={{paddingTop: '1em'}}>Coming Soon</Typography>
         {upcoming.map((movie) => (
@@ -32,12 +33,13 @@ const ComingSoon = () => {
          <CardContent sx={{padding: '.5em'}}>
          <Typography variant='h5'>{movie.title}</Typography>
          <Typography> Rating: {movie.vote_average} </Typography>
-         <Rating name='read-only' value={movie.popularity} precision={0.1} readOnly />
+         <Rating value={movie.vote_average} precision={0.1} max={10} readOnly />
          </CardContent>
          </CardActionArea>
       </Card>
         ))}
     </Box>
+    </Container>
     </>
   )
 }

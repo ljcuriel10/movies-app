@@ -32,7 +32,7 @@ const Nav = () => {
                     WeLoveMovies
                 </Typography>
 
-                <Box sx={{ flexGrow:1, diplay: { xs: 'flex', md: 'none' } }}>
+                <Box>
                     <IconButton
                         size='large'
                         aria-label='account of current user'
@@ -40,6 +40,7 @@ const Nav = () => {
                         aria-haspopup='true'
                         onClick={handleOpenNavMenu}
                         color='inherit'
+                        sx={{ display: { xs:'flex', md: 'none'} }}
                     >
                         <MenuIcon />
                     </IconButton>
@@ -64,8 +65,8 @@ const Nav = () => {
                          <MenuItem component='a' href='/' onClick={handleCloseNavMenu}>
                                 <Typography textAlign='center'>Home</Typography>
                         </MenuItem>
-                        <MenuItem component='a' href='/' onClick={handleCloseNavMenu}>
-                                <Typography textAlign='center'>Now Playing</Typography>
+                        <MenuItem component='a' href='/popular' onClick={handleCloseNavMenu}>
+                                <Typography textAlign='center'>Popular</Typography>
                         </MenuItem>
                         <MenuItem component='a' href='/comingSoon' onClick={handleCloseNavMenu}>
                                 <Typography textAlign='center'>Coming Soon</Typography>
@@ -80,14 +81,14 @@ const Nav = () => {
                 >
                     WeLoveMovies
                 </Typography>
-                <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                    <Button href='/' sx={{ my: 2, color: 'white', display: 'block' }}>
+                <Box  sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent:'center' }}>
+                    <Button href='/' sx={{ paddingRight:'5em', my: 2, color: 'white', display: 'block', fontWeight:'bold' }}>
                         Home
                     </Button>
-                    <Button href='/nowPlaying' sx={{ my: 2, color: 'white', display: 'block' }}>
-                        Now Playing
+                    <Button href='/popular' sx={{paddingRight:'5em', my: 2, color: 'white', display: 'block', fontWeight:'bold' }}>
+                        Popular
                     </Button>
-                    <Button href='/comingSoon' sx={{ my: 2, color: 'white', display: 'block' }}>
+                    <Button href='/comingSoon' sx={{ my: 2, color: 'white', display: 'block', fontWeight:'bold' }}>
                         Coming Soon
                     </Button>
                 </Box>

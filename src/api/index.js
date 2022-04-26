@@ -42,3 +42,36 @@ export const getUpcoming = async () => {
         console.log(error);
     };
 };
+
+export const getWatchProviders = async (movie_id) => {
+    const URL = `${BASE_URL}${movie_id}/watch/providers`
+
+    try {
+        const {data: results} = await axios.get(URL, options);
+        return results;
+    } catch (error) {
+        console.log(error);
+    };
+};
+
+export const getReviews = async (movie_id) => {
+    const URL = `${BASE_URL}${movie_id}/reviews`
+
+    try {
+        const {data: {results} } = await axios.get(URL, options);
+        return results;
+    } catch (error) {
+        console.log(error);
+    };
+};
+
+export const getPopular = async () => {
+    const URL = `${BASE_URL}popular`;
+
+    try {
+        const { data: {results} } = await axios.get(URL, options);
+        return results;
+    } catch (error) {
+        console.log(error)
+    };
+};
